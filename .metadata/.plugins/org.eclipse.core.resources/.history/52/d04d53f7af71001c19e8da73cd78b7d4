@@ -1,0 +1,16 @@
+<%@page import="java.util.Scanner"%> <!-- 이 페이지에선 스캐너를 import해서 쓰겠다 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		Scanner sc = new Scanner(System.in);
+		
+	%>
+</body>
+</html>

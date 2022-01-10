@@ -1,0 +1,120 @@
+// DAO
+
+package Java.com.ex.DB;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+public class Controller {
+	static String driver = "org.mariadb.jdbc.Driver";
+	static String url = "jdbc:mariadb://Localhost:3308/test";
+	static String uid = "root";
+	static String pwd = "281471";
+	static String query = "select * from quddnr";
+	
+	Connection con = null;
+	Statement st = null;
+	ResultSet rs = null;
+
+	public Controller() {
+		try {
+			con = DriverManager.getConnection("jdbc:mariadb://localhost:3308/test/quddnr", "root", "281471");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// 회원 추가
+    public void insertMember(ModelDto modeldto) {
+        try {
+            st = con.createStatement();
+            int stmt = st.executeUpdate(
+                    "insert into member values ('" + modeldto.name + "', '" + modeldto.code + "', '" + modeldto.sel + "');");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    // 회원 목록 출력
+    public ArrayList<ModelDto> readMember() {
+        ArrayList<ModelDto> arr = new ArrayList<ModelDto>();
+        System.out.println(arr);
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("select * from quddnr;");
+            while (rs.next()) {
+                arr.add(new ModelDto(rs.getString(1), rs.getString(2), rs.getString(3)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                st.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return arr;
+    }
+    
+    // 회원수정
+    public void updateMember(String name, String sel) {
+        try {
+            st = con.createStatement();
+            int stmt = st
+                    .executeUpdate("update member set sel = '" + sel + "' where name = '" + name + "';");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                st.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 회원삭제
+    public void deleteMember(String name) {
+        try {
+            st = con.createStatement();
+            int stmt = st.executeUpdate("delete from member where name = '" + name + "';");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                st.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+	
+    // 회원 검색
+    public ArrayList<ModelDto> searchMember(String content) {
+        ArrayList<ModelDto> arr = new ArrayList<ModelDto>();
+        System.out.println(arr);
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("select * from member where name like '%" + content + "%';");
+            while (rs.next()) {
+                arr.add(new ModelDto(rs.getString(1), rs.getString(2), rs.getString(3)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                st.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return arr;
+    }
+}

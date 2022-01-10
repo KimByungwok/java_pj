@@ -1,0 +1,13 @@
+package com.java.ex;
+
+import javax.swing.JFrame;
+
+public class JoinLogin extends JFrame{
+	public JoinLogin() {
+		JPanel p = new JPanel();
+		Label name = new Label("이름");
+		Label id = new Label("아이디");
+		Label pw = new Label("비밀번호");
+		
+	}
+}

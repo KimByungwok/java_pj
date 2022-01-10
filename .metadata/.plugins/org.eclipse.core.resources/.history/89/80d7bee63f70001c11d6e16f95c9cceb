@@ -1,0 +1,7 @@
+package com.java.ex;
+
+import javax.swing.JFrame;
+
+public class JoinLogin extends JFrame{
+
+}

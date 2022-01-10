@@ -1,0 +1,40 @@
+
+package Java.com.ex.DB;
+
+//DTO
+
+public class Model {
+	String name;
+	String coed;
+	String sel;
+
+	public Model(String name, String code, String sel) {
+		this.code = code;
+		this.name = name;
+		this.sel = sel;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public String getSel() {
+		return sel;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setSel(String sel) {
+		this.sel = sel;
+	}
+}

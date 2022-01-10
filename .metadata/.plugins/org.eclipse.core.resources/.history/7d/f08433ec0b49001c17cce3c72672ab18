@@ -1,0 +1,44 @@
+
+
+package Java.com.ex.DB;
+
+//DTO
+
+public class ModelDto {
+	String name;
+	String code;
+	String sel;
+
+	public ModelDto(String name, String code, String sel) {
+		this.code = code;
+		this.name = name;
+		this.sel = sel;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public String getSel() {
+		return sel;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setSel(String sel) {
+		this.sel = sel;
+	}
+}
+public class ModelDto {
+
+}

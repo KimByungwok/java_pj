@@ -1,0 +1,41 @@
+package Java.com.ex;
+
+public class Snippet {
+	CREATE TABLE TB_USERLIST(
+	    id varchar2(20) NOT NULL PRIMARY KEY, -- 아이디
+	    name varchar2(20) NOT NULL, -- 이름
+	    age NUMBER, -- 나이
+	    addr varchar2(50) -- 주소
+	);
+	
+	-- 결과 조회
+	SELECT * FROM TB_USERLIST;
+	
+	-- 테이블 구조 확인
+	DESC TB_USERLIST;
+	
+	
+	
+	-- 데이터 추가
+	INSERT INTO TB_USERLIST VALUES('javaking','자바킹',28,'서울 잇츠컴퍼니');
+	
+	-- 데이터 업데이트
+	SELECT * FROM TB_USERLIST WHERE id='javaking'; -- 해당 회원의 데이터 읽어오기.
+	UPDATE TB_USERLIST SET NAME = ? , age = ? , addr = ? WHERE id=?; -- 해당회원의 정보 수정
+	
+	-- 데이터 제거
+	DELETE FROM TB_USERLIST WHERE id='javaking';
+	
+	-- 전체 리스트
+	SELECT * FROM TB_USERLIST ORDER BY id;
+	
+	-- 데이터 검색.
+	SELECT * FROM TB_USERLIST WHERE id LIKE '%java%';
+	SELECT * FROM TB_USERLIST WHERE NAME LIKE '%자바%';
+	SELECT * FROM TB_USERLIST WHERE addr LIKE '%java%';
+	
+	-- 다른테이블에서 데이터 복사하기
+	INSERT INTO TB_USERLIST
+	SELECT * FROM userlist1;
+}
+

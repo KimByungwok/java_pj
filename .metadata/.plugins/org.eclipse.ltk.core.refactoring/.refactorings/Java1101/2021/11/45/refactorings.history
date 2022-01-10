@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;java.com.ex.LayoutManager&apos; to &apos;FlowLayoutSample&apos;&#x0D;&#x0A;- Original project: &apos;Java1101&apos;&#x0D;&#x0A;- Original element: &apos;java.com.ex.LayoutManager&apos;&#x0D;&#x0A;- Renamed element: &apos;java.com.ex.FlowLayoutSample&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;LayoutManager&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;java.com.ex{LayoutManager.java[LayoutManager" matchStrategy="1" name="FlowLayoutSample" qualified="false" references="true" similarDeclarations="false" stamp="1635729585802" textual="false" version="1.0"/>
+</session>

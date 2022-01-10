@@ -1,0 +1,31 @@
+package com.java.robot;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		System.out.println("½´ÆÛ ·Îº¿ »ý¼º");
+		Robot sr = new SuperRobot();
+		sr.Shape();
+		sr.walk();
+		sr.run();
+		sr.Fly();
+		sr.Missile();
+		sr.Sword();
+		
+		
+		System.out.println("½ºÅÄ´Ùµå ·Îº¿ »ý¼º");
+		Robot st = new StandardRobot();
+		st.Shape();
+		st.walk();
+		st.run();
+		st.Fly();
+		st.Missile();
+		st.Sword();
+		
+		System.out.println("°ª½Ñ ·Îº¿ »ý¼º");
+		Robot cheap = new CheapRobot();
+		cheap.Shape();
+		cheap.walk();
+		cheap.run();
+	}
+}

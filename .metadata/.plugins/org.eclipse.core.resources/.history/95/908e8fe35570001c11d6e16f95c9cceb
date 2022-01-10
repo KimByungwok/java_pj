@@ -1,0 +1,66 @@
+package com.java.ex;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import javax.swing.*;
+import javax.swing.plaf.metal.MetalBorders.TextFieldBorder;
+
+import java.awt.*;
+
+public class JoinLogin extends JFrame{
+	public JoinLogin() {
+		super("회원가입");
+		
+		JoinLogin addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e1) {
+				JLabel sid = new JLabel("아이디 : ");
+				JLabel spw = new JLabel("비밀번호 : ");
+				JLabel sname = new JLabel("이름 : ");
+					
+				Font font1 = new Font("맑은 고딕",Font.BOLD,15);
+				sid.setFont(font1);
+				spw.setFont(font1);
+				sname.setFont(font1);
+					
+				JTextField tf_id, tf_pw, tf_name;
+				tf_id = new JTextField(10);
+				tf_pw = new JTextField(10);
+				tf_name = new JTextField(5);
+					
+				JPanel panel = new JPanel();
+				add(panel, BorderLayout.CENTER);
+				panel.add(sid);
+				panel.add(tf_id);
+				panel.add(spw);
+				panel.add(tf_pw);
+				panel.add(sname);
+				panel.add(tf_name);
+					
+				JPanel panel2 = new JPanel();
+				add(panel2, BorderLayout.SOUTH);
+					
+				save = new JButton("저장");
+				cancel = new JButton("취소");
+				save.setFont(font1);
+				cancel.setFont(font1);
+					
+				panel2.add(save);
+				panel2.add(cancel);
+					
+				sid = new JLabel();
+				spw = new JLabel();
+				sname = new JLabel();
+					
+				Btn = new JPanel();
+					
+				save.addActionListener(this);
+				cancel.addActionListener(this);
+					
+				setTitle("회원 가입");
+				setSize(500,500);
+				setVisible(true);
+			}
+		}
+	}
+}

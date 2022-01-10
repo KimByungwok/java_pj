@@ -1,0 +1,48 @@
+package Java.com.ex;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+import javax.swing.table.*;
+import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+// 리스너 임플리먼츠 표시
+public class MemberTable implements MouseListener,ActionListener{
+	static String driver = "org.mariadb.jdbc.Driver";
+	static String url = "jdbc:mariadb://Localhost:3308/test";
+	static String uid = "root";
+	static String pwd = "281471";
+	static String query = "select * from quddnr";
+	
+	
+	
+	JFrame frame;
+	JLabel label, num, name,phone, address;
+	JTextField fnum, fname,fphone,femail,search;
+	JButton add,delete,update,all,sbutton;
+	
+	String items[] = {"이름","주소"};
+	JComboBox<String> combo;MemberTable(){
+		
+	}
+
+
+	public static void main(String[] args) {
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url,uid,pwd);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+

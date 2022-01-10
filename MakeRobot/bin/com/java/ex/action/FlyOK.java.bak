@@ -1,0 +1,8 @@
+package com.java.ex.action;
+
+public class FlyOK implements Fly{
+	@Override
+	public void Fly() {
+		System.out.println("³¯±â : O ");
+	}
+}

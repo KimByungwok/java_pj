@@ -1,0 +1,12 @@
+package ch04.com.dao;
+
+public class Person {
+	private int id = 17871013;
+	private String name = "±èº´¿í";
+	
+	public Person() {
+		
+	}
+	
+	
+}

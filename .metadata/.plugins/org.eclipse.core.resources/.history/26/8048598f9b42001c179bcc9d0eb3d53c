@@ -1,0 +1,116 @@
+package Java.com.ex;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class MainClass {
+	static String driver = "org.mariadb.jdbc.Driver";
+	static String url = "jdbc:mariadb://Localhost:3308/test";
+	static String uid = "root";
+	static String pwd = "281471";
+	
+	public static void main(String[] args) {
+		Connection con = null;
+		Statement stmt = null;
+		PreparedStatement searchpstmt = null;
+		PreparedStatement updatepstmt = null;
+		ResultSet rs = null;
+		String id,pw,name,email;
+		Scanner sc = new Scanner(System.in);
+		
+		String query1 = "select * from member where m_id=?";
+		String query2 = "update member set m_pw=?,m_name=?,m_email=?,where m_id=?";
+		
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url,uid,pwd);
+			con.setAutoCommit(false);
+			
+			System.out.println("정보 수정이 필요한 회원 ID: ");
+			id = sc.next();
+			
+			searchpstmt = con.prepareStatement(query1);
+			searchpstmt.setString(1, id);
+			rs = searchpstmt.executeQuery();
+			
+			if(rs.next()==true) {
+				id = rs.getString("m_id");
+				pw = rs.getString("m_pw");
+				name = rs.getString("m_name");
+				email = rs.getString("m_email");
+				
+				System.out.println("====================");
+				System.out.println("<<정보 변경이 필요한 회원>>");
+				System.out.println("ID : "+id);
+				System.out.println("PW : "+pw);
+				System.out.println("이름 : "+name);
+				System.out.println("이메일 : "+email);
+				System.out.println("====================");
+			}else {
+				System.out.println(id + "님은 존재하지 않습니다");
+				System.exit(0);
+			}
+			System.out.println("");
+			System.out.println("<<정보 변경 입력>>");
+			System.out.println("PW: ");
+			pw = sc.next();
+			System.out.println("이름: ");
+			name = sc.next();
+			System.out.println("이메일: ");
+			email = sc.next();
+			
+			updatepstmt = con.prepareStatement(query2);
+			updatepstmt.setString(1, pw);
+			updatepstmt.setString(2, name);
+			updatepstmt.setString(3, email);
+			updatepstmt.setString(4, id);
+			int resultQuery = updatepstmt.executeUpdate();
+			
+			if (1==resultQuery){
+				rs.close();
+				searchpstmt.close();
+				
+				searchpstmt = con.prepareStatement(query1);
+				searchpstmt.setString(1, id);
+				rs = searchpstmt.executeQuery();
+				
+				if(rs.next() == true) {
+					id = rs.getString("m_id");
+					pw = rs.getString("m_pw");
+					name = rs.getString("m_name");
+					email = rs.getString("m_email");
+					
+					System.out.println("====================");
+					System.out.println("<<정보 변경이 필요한 회원>>");
+					System.out.println("ID : "+id);
+					System.out.println("PW : "+pw);
+					System.out.println("이름 : "+name);
+					System.out.println("이메일 : "+email);
+					System.out.println("====================");
+				}
+				while(true) {
+					System.out.println("변경을 확정하시겠습니까? Y/N");
+					String choice = sc.next();
+					
+					if(choice.equals("y")||choice.equals("y")) {
+						con.commit();
+						System.out.println("정보 변경 성공");
+						break;
+					}else if (choice.equals("n")||choice.equals("N")) {
+						con.rollback();
+						System.out.println("정보 변경 취소");
+						break;
+					}else {
+						System.out.println("잘못된 입력입니다. 다시 한번 확인해라");
+						continue;
+					}
+				}
+			}
+			
+		}
+	}
+}

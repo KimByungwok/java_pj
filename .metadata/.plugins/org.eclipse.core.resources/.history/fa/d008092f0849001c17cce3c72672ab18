@@ -1,0 +1,18 @@
+		// DTO
+
+package Java.com.ex.DB;
+
+public class Model {
+	String name;
+	String code;
+	String sel;
+	
+	public Model(String name,String code, String sel) {
+		this.name =  name;
+		this.code = code;
+		this.sel = se
+	}
+	
+
+
+}

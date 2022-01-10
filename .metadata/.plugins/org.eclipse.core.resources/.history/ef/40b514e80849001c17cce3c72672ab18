@@ -1,0 +1,27 @@
+		// DAO
+
+package Java.com.ex.DB;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class Controller {
+	static String driver = "org.mariadb.jdbc.Driver";
+	static String url = "jdbc:mariadb://Localhost:3308/test";
+	static String uid = "root";
+	static String pwd = "281471";
+	static String query = "select * from quddnr";
+	
+	public static void main(String[] args) {
+		Connection con = null;
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url,uid,pwd);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

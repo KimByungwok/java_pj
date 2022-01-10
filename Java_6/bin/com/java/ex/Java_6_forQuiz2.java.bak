@@ -1,0 +1,21 @@
+package com.java.ex;
+
+public class Java_6_forQuiz2 {
+// 1¿¡¼­ 10 ÀÌ¶û 1¿¡¼­ 10±îÁö È¦¼ö ÇÕ Â¦¼ö ÇÕ 3°³
+	public static void main(String[] args) {
+		int sum = 0;
+		int hol = 0;
+		int jjak = 0;
+		
+		for (int i = 1; i<=100; i++) {		
+			sum = sum+i;
+			if(i % 2 == 0) {
+				jjak = jjak+i;
+			}
+			if(i % 2 != 0) {
+				hol = hol+i;			
+			}
+		}
+		System.out.println("ÃÑÇÕ: " +sum+"\nÈ¦¼ö ÇÕ: "+hol+"\nÂ¦¼ö ÇÕ: "+jjak);
+	}
+}

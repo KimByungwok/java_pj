@@ -1,0 +1,52 @@
+
+
+package Java.com.ex;
+
+//DTO
+
+public class ModelDto {
+	String code;
+	String name;	
+	String division;
+	String price;
+	
+	
+
+	public ModelDto(String code, String name, String division, String price) {
+		this.code = code;
+		this.name = name;
+		this.division = division;
+		this.price = price;
+				
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public String getDivision() {
+		return price;
+	}
+	
+	public String getPrice() {
+		return price;
+	}
+	
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setSel(String sel) {
+		this.sel = sel;
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.java.ex.UrlEx&apos; to &apos;URLEx&apos;&#x0D;&#x0A;- Original project: &apos;Java1104_2&apos;&#x0D;&#x0A;- Original element: &apos;com.java.ex.UrlEx&apos;&#x0D;&#x0A;- Renamed element: &apos;com.java.ex.URLEx&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;UrlEx&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.java.ex{UrlEx.java[UrlEx" matchStrategy="1" name="URLEx" qualified="false" references="true" similarDeclarations="false" stamp="1635987239001" textual="false" version="1.0"/>
+</session>
